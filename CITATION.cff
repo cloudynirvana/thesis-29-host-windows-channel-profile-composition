@@ -1,0 +1,44 @@
+cff-version: 1.2.0
+message: "If you cite this computational research thesis, please use the metadata below. No DOI is minted here; do not invent one."
+type: thesis
+title: "Host infection windows that re-rank channel–profile composition without merging into Θ"
+authors:
+  - family-names: Ogbonna
+    given-names: Kelechi Emeka
+    email: kelechiogbonna300@gmail.com
+    alias: cloudynirvana
+abstract: >-
+  Can declared host infection windows that re-rank immunometabolic
+  hypotheses also change which named observation-channel compositions
+  remain legal Disease Profiles, without promoting either the windows
+  or the channel coefficients into Θ? They can. Sixteen composition
+  files were scored by the disjoint-union rule list and by a schedule
+  clause. Seven files pass the structural list. The ledger schedule
+  accepts five. The host schedule, which adds the declared windows
+  [1.5, 2.5] and [10, 12], accepts one (windowed). Four files leave
+  and none enters. The JSON Schema accept set is eleven files on both
+  schedules. SHA-256 of the canonical kinetic object does not change,
+  including after a refused promotion of k_inf and k_host. Research
+  only. Not a medical device. No document DOI.
+keywords:
+  - disease profile
+  - observation channel
+  - disjoint union
+  - host infection window
+  - composition legality
+  - theta digest
+  - research-only
+license: MIT
+date-released: "2026-09-21"
+url: "https://github.com/cloudynirvana/thesis-29-host-windows-channel-profile-composition"
+repository-code: "https://github.com/cloudynirvana/thesis-29-host-windows-channel-profile-composition"
+preferred-citation:
+  type: thesis
+  title: "Host infection windows that re-rank channel–profile composition without merging into Θ"
+  authors:
+    - family-names: Ogbonna
+      given-names: Kelechi Emeka
+  year: 2026
+  month: 9
+  url: "https://github.com/cloudynirvana/thesis-29-host-windows-channel-profile-composition"
+  notes: "Thesis #29. Depends on Thesis #22 and Thesis #23. Computational research. Composition accept and refuse sets under two evidence schedules. No document DOI. Not a clinical result."

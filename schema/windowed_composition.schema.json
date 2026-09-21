@@ -1,0 +1,209 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/cloudynirvana/thesis-29-host-windows-channel-profile-composition/schema/windowed_composition.schema.json",
+  "title": "WindowedChannelComposition",
+  "description": "Local contract for a Disease Profile whose channels are joined by disjoint union, with an evidence-host list that a schedule may read. Extends the shape of Thesis #22 schema 1.2.0-compose. Does not edit that file. The schema does not know which evidence schedule is active, and it does not check uniqueness of channel identifiers or equality of disease identifiers. Research object only. Not a medical device. This document has no DOI.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "profile_id",
+    "extends",
+    "disease_id",
+    "disease_label",
+    "created_at",
+    "asker_role",
+    "answers",
+    "observables",
+    "observation_channels",
+    "composition",
+    "candidate_mechanisms",
+    "non_parameters",
+    "theta",
+    "admitted_hypotheses",
+    "citations",
+    "disclaimer"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.3.0-windowed-compose" },
+    "profile_id": { "type": "string", "minLength": 1 },
+    "extends": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["object", "schema_version", "source"],
+      "properties": {
+        "object": { "type": "string", "const": "DiseaseProfile" },
+        "schema_version": { "type": "string", "const": "1.0.0" },
+        "source": { "type": "string", "minLength": 1 }
+      }
+    },
+    "disease_id": { "type": "string", "minLength": 1 },
+    "disease_label": { "type": "string", "minLength": 1 },
+    "created_at": { "type": "string", "minLength": 1 },
+    "asker_role": { "type": "string", "minLength": 1 },
+    "answers": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "question", "label"],
+        "properties": {
+          "id": { "type": "string" },
+          "question": { "type": "string", "minLength": 1 },
+          "label": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "observables": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "statement", "citation_ids"],
+        "properties": {
+          "id": { "type": "string" },
+          "statement": { "type": "string", "minLength": 1 },
+          "citation_ids": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "observation_channels": {
+      "type": "array",
+      "minItems": 2,
+      "items": { "$ref": "#/definitions/channel" }
+    },
+    "composition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["operator", "quotient", "combiner", "factors", "hosted_evidence"],
+      "properties": {
+        "operator": { "type": "string", "const": "disjoint_union" },
+        "quotient": { "type": "null" },
+        "combiner": { "type": "null" },
+        "factors": {
+          "type": "array",
+          "minItems": 2,
+          "items": { "$ref": "#/definitions/factor" }
+        },
+        "hosted_evidence": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "candidate_mechanisms": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "statement", "evidence_class", "falsifier", "status"],
+        "properties": {
+          "id": { "type": "string" },
+          "statement": { "type": "string" },
+          "evidence_class": { "type": "string" },
+          "falsifier": { "type": "string" },
+          "status": { "type": "string", "enum": ["admitted", "refused"] },
+          "refusal_rule": { "type": "string" }
+        }
+      }
+    },
+    "non_parameters": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "statement"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "statement": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "theta": {
+      "type": "array",
+      "maxItems": 0,
+      "items": { "type": "string" }
+    },
+    "admitted_hypotheses": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "statement", "falsifier", "parameter_status"],
+        "properties": {
+          "id": { "type": "string" },
+          "statement": { "type": "string", "minLength": 1 },
+          "falsifier": { "type": "string", "minLength": 1 },
+          "parameter_status": { "type": "string", "const": "forbidden_to_enter_theta" }
+        }
+      }
+    },
+    "citations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "vancouver"],
+        "properties": {
+          "id": { "type": "string" },
+          "vancouver": { "type": "string", "minLength": 1 },
+          "doi": { "type": "string", "pattern": "^10\\.\\d{4,9}/\\S+$" }
+        }
+      }
+    },
+    "disclaimer": { "type": "string", "minLength": 1 }
+  },
+  "definitions": {
+    "channel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "channel_id",
+        "name",
+        "symbol",
+        "map_coefficient",
+        "observes",
+        "parameter_status",
+        "factor_id",
+        "source_prior",
+        "refusal"
+      ],
+      "properties": {
+        "channel_id": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "symbol": { "type": "string", "minLength": 1 },
+        "map_coefficient": { "type": "string", "minLength": 1 },
+        "observes": { "type": "string", "minLength": 1 },
+        "parameter_status": { "type": "string", "const": "not_in_theta" },
+        "factor_id": { "type": "string", "minLength": 1 },
+        "source_prior": { "type": "string", "enum": ["T08", "T15", "declared_map"] },
+        "refusal": { "type": "string", "minLength": 1 }
+      }
+    },
+    "factor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["factor_id", "source_prior", "disease_id", "channel_ids"],
+      "properties": {
+        "factor_id": { "type": "string", "minLength": 1 },
+        "source_prior": { "type": "string", "enum": ["T08", "T15", "declared_map"] },
+        "disease_id": { "type": "string", "minLength": 1 },
+        "channel_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

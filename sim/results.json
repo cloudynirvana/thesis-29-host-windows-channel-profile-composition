@@ -1,0 +1,1284 @@
+{
+  "thesis": 29,
+  "seed": 20260929,
+  "seed_governs": "permutation audit of the rank control only",
+  "inputs_not_results": {
+    "theta_canonical": "{\"K\":1.2,\"delta\":0.25,\"kappa\":0.5,\"lam\":0.55,\"pi\":0.7,\"r\":0.3,\"sigma\":0.12}",
+    "windows": {
+      "W_I": {
+        "label": "infection",
+        "interval": [
+          1.5,
+          2.5
+        ]
+      },
+      "W_M": {
+        "label": "marrow_stress",
+        "interval": [
+          10.0,
+          12.0
+        ]
+      }
+    },
+    "ledger_ids": [
+      "E_lac",
+      "E_ck",
+      "E_sup"
+    ],
+    "note": "Kinetic literals and window endpoints are declared inputs. No results file from Thesis #22 or Thesis #23 was read. Fisher diagonals from Thesis #22 were not recomputed."
+  },
+  "theta_sha256": "cf5be3430e25f75d9f87810c789195a3225388b0a9973de7970ec3890a70313e",
+  "digest_checkpoints": {
+    "start": "cf5be3430e25f75d9f87810c789195a3225388b0a9973de7970ec3890a70313e",
+    "after_catalogue": "cf5be3430e25f75d9f87810c789195a3225388b0a9973de7970ec3890a70313e",
+    "after_refused_promotion": "cf5be3430e25f75d9f87810c789195a3225388b0a9973de7970ec3890a70313e",
+    "after_names_unchanged": "cf5be3430e25f75d9f87810c789195a3225388b0a9973de7970ec3890a70313e"
+  },
+  "digest_unchanged": true,
+  "n_files": 16,
+  "accept": {
+    "ledger": [
+      "bundle",
+      "singletons",
+      "binary",
+      "windowed",
+      "partial_window"
+    ],
+    "host": [
+      "windowed"
+    ]
+  },
+  "accept_counts": {
+    "ledger": 5,
+    "host": 1
+  },
+  "structural_accept": [
+    "bundle",
+    "singletons",
+    "binary",
+    "windowed",
+    "partial_window",
+    "windows_only",
+    "empty_hosts"
+  ],
+  "structural_accept_count": 7,
+  "schema_accept": [
+    "bundle",
+    "singletons",
+    "binary",
+    "windowed",
+    "partial_window",
+    "windows_only",
+    "empty_hosts",
+    "repeat",
+    "cross_class",
+    "window_coeff",
+    "one_theta"
+  ],
+  "schema_accept_count": 11,
+  "schema_schedule_blind": true,
+  "movement": {
+    "stay_accept": [
+      "windowed"
+    ],
+    "leave_on_host": [
+      "bundle",
+      "singletons",
+      "binary",
+      "partial_window"
+    ],
+    "enter_on_host": [],
+    "stay_refuse": [
+      "windows_only",
+      "empty_hosts",
+      "identify",
+      "product",
+      "mean",
+      "promote_alpha",
+      "repeat",
+      "cross_class",
+      "window_coeff",
+      "window_theta",
+      "one_theta"
+    ]
+  },
+  "files": [
+    {
+      "profile_id": "bundle",
+      "filename": "ledger_only_bundle.profile.yaml",
+      "operator": "disjoint_union",
+      "theta": [],
+      "hosted_evidence": [
+        "E_lac",
+        "E_ck",
+        "E_sup"
+      ],
+      "channel_ids": [
+        "ch_amyl_map",
+        "ch_spectral",
+        "ch_compartment"
+      ],
+      "map_coefficients": [
+        "alpha",
+        "beta",
+        "gamma"
+      ],
+      "structural_codes": [],
+      "schedules": {
+        "ledger": {
+          "codes": [],
+          "accept": true,
+          "missing": []
+        },
+        "host": {
+          "codes": [
+            "UNHOSTED:W_I,W_M"
+          ],
+          "accept": false,
+          "missing": [
+            "W_I",
+            "W_M"
+          ]
+        }
+      },
+      "accept": {
+        "ledger": true,
+        "host": false
+      },
+      "schema": {
+        "valid": true,
+        "n_errors": 0,
+        "paths": []
+      }
+    },
+    {
+      "profile_id": "singletons",
+      "filename": "ledger_only_singletons.profile.yaml",
+      "operator": "disjoint_union",
+      "theta": [],
+      "hosted_evidence": [
+        "E_lac",
+        "E_ck",
+        "E_sup"
+      ],
+      "channel_ids": [
+        "ch_amyl_map",
+        "ch_spectral",
+        "ch_compartment"
+      ],
+      "map_coefficients": [
+        "alpha",
+        "beta",
+        "gamma"
+      ],
+      "structural_codes": [],
+      "schedules": {
+        "ledger": {
+          "codes": [],
+          "accept": true,
+          "missing": []
+        },
+        "host": {
+          "codes": [
+            "UNHOSTED:W_I,W_M"
+          ],
+          "accept": false,
+          "missing": [
+            "W_I",
+            "W_M"
+          ]
+        }
+      },
+      "accept": {
+        "ledger": true,
+        "host": false
+      },
+      "schema": {
+        "valid": true,
+        "n_errors": 0,
+        "paths": []
+      }
+    },
+    {
+      "profile_id": "binary",
+      "filename": "ledger_only_binary.profile.yaml",
+      "operator": "disjoint_union",
+      "theta": [],
+      "hosted_evidence": [
+        "E_lac",
+        "E_ck",
+        "E_sup"
+      ],
+      "channel_ids": [
+        "ch_spectral",
+        "ch_compartment"
+      ],
+      "map_coefficients": [
+        "beta",
+        "gamma"
+      ],
+      "structural_codes": [],
+      "schedules": {
+        "ledger": {
+          "codes": [],
+          "accept": true,
+          "missing": []
+        },
+        "host": {
+          "codes": [
+            "UNHOSTED:W_I,W_M"
+          ],
+          "accept": false,
+          "missing": [
+            "W_I",
+            "W_M"
+          ]
+        }
+      },
+      "accept": {
+        "ledger": true,
+        "host": false
+      },
+      "schema": {
+        "valid": true,
+        "n_errors": 0,
+        "paths": []
+      }
+    },
+    {
+      "profile_id": "windowed",
+      "filename": "both_schedules_windowed.profile.yaml",
+      "operator": "disjoint_union",
+      "theta": [],
+      "hosted_evidence": [
+        "E_lac",
+        "E_ck",
+        "E_sup",
+        "W_I",
+        "W_M"
+      ],
+      "channel_ids": [
+        "ch_amyl_map",
+        "ch_spectral",
+        "ch_compartment"
+      ],
+      "map_coefficients": [
+        "alpha",
+        "beta",
+        "gamma"
+      ],
+      "structural_codes": [],
+      "schedules": {
+        "ledger": {
+          "codes": [],
+          "accept": true,
+          "missing": []
+        },
+        "host": {
+          "codes": [],
+          "accept": true,
+          "missing": []
+        }
+      },
+      "accept": {
+        "ledger": true,
+        "host": true
+      },
+      "schema": {
+        "valid": true,
+        "n_errors": 0,
+        "paths": []
+      }
+    },
+    {
+      "profile_id": "partial_window",
+      "filename": "ledger_only_partial_window.profile.yaml",
+      "operator": "disjoint_union",
+      "theta": [],
+      "hosted_evidence": [
+        "E_lac",
+        "E_ck",
+        "E_sup",
+        "W_I"
+      ],
+      "channel_ids": [
+        "ch_amyl_map",
+        "ch_spectral",
+        "ch_compartment"
+      ],
+      "map_coefficients": [
+        "alpha",
+        "beta",
+        "gamma"
+      ],
+      "structural_codes": [],
+      "schedules": {
+        "ledger": {
+          "codes": [],
+          "accept": true,
+          "missing": []
+        },
+        "host": {
+          "codes": [
+            "UNHOSTED:W_M"
+          ],
+          "accept": false,
+          "missing": [
+            "W_M"
+          ]
+        }
+      },
+      "accept": {
+        "ledger": true,
+        "host": false
+      },
+      "schema": {
+        "valid": true,
+        "n_errors": 0,
+        "paths": []
+      }
+    },
+    {
+      "profile_id": "windows_only",
+      "filename": "refuse_windows_only.profile.yaml",
+      "operator": "disjoint_union",
+      "theta": [],
+      "hosted_evidence": [
+        "W_I",
+        "W_M"
+      ],
+      "channel_ids": [
+        "ch_amyl_map",
+        "ch_spectral",
+        "ch_compartment"
+      ],
+      "map_coefficients": [
+        "alpha",
+        "beta",
+        "gamma"
+      ],
+      "structural_codes": [],
+      "schedules": {
+        "ledger": {
+          "codes": [
+            "UNHOSTED:E_lac,E_ck,E_sup"
+          ],
+          "accept": false,
+          "missing": [
+            "E_lac",
+            "E_ck",
+            "E_sup"
+          ]
+        },
+        "host": {
+          "codes": [
+            "UNHOSTED:E_lac,E_ck,E_sup"
+          ],
+          "accept": false,
+          "missing": [
+            "E_lac",
+            "E_ck",
+            "E_sup"
+          ]
+        }
+      },
+      "accept": {
+        "ledger": false,
+        "host": false
+      },
+      "schema": {
+        "valid": true,
+        "n_errors": 0,
+        "paths": []
+      }
+    },
+    {
+      "profile_id": "empty_hosts",
+      "filename": "refuse_empty_hosts.profile.yaml",
+      "operator": "disjoint_union",
+      "theta": [],
+      "hosted_evidence": [],
+      "channel_ids": [
+        "ch_amyl_map",
+        "ch_spectral",
+        "ch_compartment"
+      ],
+      "map_coefficients": [
+        "alpha",
+        "beta",
+        "gamma"
+      ],
+      "structural_codes": [],
+      "schedules": {
+        "ledger": {
+          "codes": [
+            "UNHOSTED:E_lac,E_ck,E_sup"
+          ],
+          "accept": false,
+          "missing": [
+            "E_lac",
+            "E_ck",
+            "E_sup"
+          ]
+        },
+        "host": {
+          "codes": [
+            "UNHOSTED:E_lac,E_ck,E_sup,W_I,W_M"
+          ],
+          "accept": false,
+          "missing": [
+            "E_lac",
+            "E_ck",
+            "E_sup",
+            "W_I",
+            "W_M"
+          ]
+        }
+      },
+      "accept": {
+        "ledger": false,
+        "host": false
+      },
+      "schema": {
+        "valid": true,
+        "n_errors": 0,
+        "paths": []
+      }
+    },
+    {
+      "profile_id": "identify",
+      "filename": "refuse_identify.profile.yaml",
+      "operator": "identify",
+      "theta": [
+        "theta"
+      ],
+      "hosted_evidence": [
+        "E_lac",
+        "E_ck",
+        "E_sup",
+        "W_I",
+        "W_M"
+      ],
+      "channel_ids": [
+        "ch_amyl_map",
+        "ch_spectral",
+        "ch_compartment"
+      ],
+      "map_coefficients": [
+        "theta",
+        "theta",
+        "theta"
+      ],
+      "structural_codes": [
+        "OPERATOR",
+        "QUOTIENT",
+        "COMBINER",
+        "THETA_NONEMPTY",
+        "CHANNEL_IN_THETA"
+      ],
+      "schedules": {
+        "ledger": {
+          "codes": [
+            "OPERATOR",
+            "QUOTIENT",
+            "COMBINER",
+            "THETA_NONEMPTY",
+            "CHANNEL_IN_THETA"
+          ],
+          "accept": false,
+          "missing": []
+        },
+        "host": {
+          "codes": [
+            "OPERATOR",
+            "QUOTIENT",
+            "COMBINER",
+            "THETA_NONEMPTY",
+            "CHANNEL_IN_THETA"
+          ],
+          "accept": false,
+          "missing": []
+        }
+      },
+      "accept": {
+        "ledger": false,
+        "host": false
+      },
+      "schema": {
+        "valid": false,
+        "n_errors": 7,
+        "paths": [
+          "composition/combiner",
+          "composition/operator",
+          "composition/quotient",
+          "observation_channels/0/parameter_status",
+          "observation_channels/1/parameter_status",
+          "observation_channels/2/parameter_status",
+          "theta"
+        ]
+      }
+    },
+    {
+      "profile_id": "product",
+      "filename": "refuse_product.profile.yaml",
+      "operator": "product",
+      "theta": [
+        "pi"
+      ],
+      "hosted_evidence": [
+        "E_lac",
+        "E_ck",
+        "E_sup",
+        "W_I",
+        "W_M"
+      ],
+      "channel_ids": [
+        "ch_amyl_map",
+        "ch_spectral",
+        "ch_compartment"
+      ],
+      "map_coefficients": [
+        "alpha",
+        "beta",
+        "gamma"
+      ],
+      "structural_codes": [
+        "OPERATOR",
+        "COMBINER",
+        "THETA_NONEMPTY"
+      ],
+      "schedules": {
+        "ledger": {
+          "codes": [
+            "OPERATOR",
+            "COMBINER",
+            "THETA_NONEMPTY"
+          ],
+          "accept": false,
+          "missing": []
+        },
+        "host": {
+          "codes": [
+            "OPERATOR",
+            "COMBINER",
+            "THETA_NONEMPTY"
+          ],
+          "accept": false,
+          "missing": []
+        }
+      },
+      "accept": {
+        "ledger": false,
+        "host": false
+      },
+      "schema": {
+        "valid": false,
+        "n_errors": 3,
+        "paths": [
+          "composition/combiner",
+          "composition/operator",
+          "theta"
+        ]
+      }
+    },
+    {
+      "profile_id": "mean",
+      "filename": "refuse_mean.profile.yaml",
+      "operator": "arithmetic_mean",
+      "theta": [
+        "theta_mean"
+      ],
+      "hosted_evidence": [
+        "E_lac",
+        "E_ck",
+        "E_sup",
+        "W_I",
+        "W_M"
+      ],
+      "channel_ids": [
+        "ch_amyl_map",
+        "ch_spectral",
+        "ch_compartment"
+      ],
+      "map_coefficients": [
+        "alpha",
+        "beta",
+        "gamma"
+      ],
+      "structural_codes": [
+        "OPERATOR",
+        "COMBINER",
+        "THETA_NONEMPTY"
+      ],
+      "schedules": {
+        "ledger": {
+          "codes": [
+            "OPERATOR",
+            "COMBINER",
+            "THETA_NONEMPTY"
+          ],
+          "accept": false,
+          "missing": []
+        },
+        "host": {
+          "codes": [
+            "OPERATOR",
+            "COMBINER",
+            "THETA_NONEMPTY"
+          ],
+          "accept": false,
+          "missing": []
+        }
+      },
+      "accept": {
+        "ledger": false,
+        "host": false
+      },
+      "schema": {
+        "valid": false,
+        "n_errors": 3,
+        "paths": [
+          "composition/combiner",
+          "composition/operator",
+          "theta"
+        ]
+      }
+    },
+    {
+      "profile_id": "promote_alpha",
+      "filename": "refuse_promote_alpha.profile.yaml",
+      "operator": "disjoint_union",
+      "theta": [
+        "alpha"
+      ],
+      "hosted_evidence": [
+        "E_lac",
+        "E_ck",
+        "E_sup",
+        "W_I",
+        "W_M"
+      ],
+      "channel_ids": [
+        "ch_amyl_map",
+        "ch_spectral",
+        "ch_compartment"
+      ],
+      "map_coefficients": [
+        "alpha",
+        "beta",
+        "gamma"
+      ],
+      "structural_codes": [
+        "THETA_NONEMPTY",
+        "CHANNEL_IN_THETA"
+      ],
+      "schedules": {
+        "ledger": {
+          "codes": [
+            "THETA_NONEMPTY",
+            "CHANNEL_IN_THETA"
+          ],
+          "accept": false,
+          "missing": []
+        },
+        "host": {
+          "codes": [
+            "THETA_NONEMPTY",
+            "CHANNEL_IN_THETA"
+          ],
+          "accept": false,
+          "missing": []
+        }
+      },
+      "accept": {
+        "ledger": false,
+        "host": false
+      },
+      "schema": {
+        "valid": false,
+        "n_errors": 2,
+        "paths": [
+          "observation_channels/0/parameter_status",
+          "theta"
+        ]
+      }
+    },
+    {
+      "profile_id": "repeat",
+      "filename": "refuse_repeat.profile.yaml",
+      "operator": "disjoint_union",
+      "theta": [],
+      "hosted_evidence": [
+        "E_lac",
+        "E_ck",
+        "E_sup",
+        "W_I",
+        "W_M"
+      ],
+      "channel_ids": [
+        "ch_spectral",
+        "ch_spectral",
+        "ch_compartment"
+      ],
+      "map_coefficients": [
+        "beta",
+        "beta",
+        "gamma"
+      ],
+      "structural_codes": [
+        "REPEATED_CHANNEL",
+        "PARTITION"
+      ],
+      "schedules": {
+        "ledger": {
+          "codes": [
+            "REPEATED_CHANNEL",
+            "PARTITION"
+          ],
+          "accept": false,
+          "missing": []
+        },
+        "host": {
+          "codes": [
+            "REPEATED_CHANNEL",
+            "PARTITION"
+          ],
+          "accept": false,
+          "missing": []
+        }
+      },
+      "accept": {
+        "ledger": false,
+        "host": false
+      },
+      "schema": {
+        "valid": true,
+        "n_errors": 0,
+        "paths": []
+      }
+    },
+    {
+      "profile_id": "cross_class",
+      "filename": "refuse_cross_class.profile.yaml",
+      "operator": "disjoint_union",
+      "theta": [],
+      "hosted_evidence": [
+        "E_lac",
+        "E_ck",
+        "E_sup",
+        "W_I",
+        "W_M"
+      ],
+      "channel_ids": [
+        "ch_amyl_map",
+        "ch_spectral",
+        "ch_compartment"
+      ],
+      "map_coefficients": [
+        "alpha",
+        "beta",
+        "gamma"
+      ],
+      "structural_codes": [
+        "CROSS_CLASS"
+      ],
+      "schedules": {
+        "ledger": {
+          "codes": [
+            "CROSS_CLASS"
+          ],
+          "accept": false,
+          "missing": []
+        },
+        "host": {
+          "codes": [
+            "CROSS_CLASS"
+          ],
+          "accept": false,
+          "missing": []
+        }
+      },
+      "accept": {
+        "ledger": false,
+        "host": false
+      },
+      "schema": {
+        "valid": true,
+        "n_errors": 0,
+        "paths": []
+      }
+    },
+    {
+      "profile_id": "window_coeff",
+      "filename": "refuse_window_coeff.profile.yaml",
+      "operator": "disjoint_union",
+      "theta": [],
+      "hosted_evidence": [
+        "E_lac",
+        "E_ck",
+        "E_sup",
+        "W_I",
+        "W_M"
+      ],
+      "channel_ids": [
+        "ch_amyl_map",
+        "ch_spectral",
+        "ch_compartment"
+      ],
+      "map_coefficients": [
+        "k_inf",
+        "beta",
+        "gamma"
+      ],
+      "structural_codes": [
+        "WINDOW_COEFF"
+      ],
+      "schedules": {
+        "ledger": {
+          "codes": [
+            "WINDOW_COEFF"
+          ],
+          "accept": false,
+          "missing": []
+        },
+        "host": {
+          "codes": [
+            "WINDOW_COEFF"
+          ],
+          "accept": false,
+          "missing": []
+        }
+      },
+      "accept": {
+        "ledger": false,
+        "host": false
+      },
+      "schema": {
+        "valid": true,
+        "n_errors": 0,
+        "paths": []
+      }
+    },
+    {
+      "profile_id": "window_theta",
+      "filename": "refuse_window_theta.profile.yaml",
+      "operator": "disjoint_union",
+      "theta": [
+        "k_inf",
+        "k_host"
+      ],
+      "hosted_evidence": [
+        "E_lac",
+        "E_ck",
+        "E_sup",
+        "W_I",
+        "W_M"
+      ],
+      "channel_ids": [
+        "ch_amyl_map",
+        "ch_spectral",
+        "ch_compartment"
+      ],
+      "map_coefficients": [
+        "alpha",
+        "beta",
+        "gamma"
+      ],
+      "structural_codes": [
+        "THETA_NONEMPTY"
+      ],
+      "schedules": {
+        "ledger": {
+          "codes": [
+            "THETA_NONEMPTY"
+          ],
+          "accept": false,
+          "missing": []
+        },
+        "host": {
+          "codes": [
+            "THETA_NONEMPTY"
+          ],
+          "accept": false,
+          "missing": []
+        }
+      },
+      "accept": {
+        "ledger": false,
+        "host": false
+      },
+      "schema": {
+        "valid": false,
+        "n_errors": 1,
+        "paths": [
+          "theta"
+        ]
+      }
+    },
+    {
+      "profile_id": "one_theta",
+      "filename": "refuse_one_theta.profile.yaml",
+      "operator": "disjoint_union",
+      "theta": [],
+      "hosted_evidence": [
+        "E_lac",
+        "E_ck",
+        "E_sup",
+        "W_I",
+        "W_M"
+      ],
+      "channel_ids": [
+        "ch_amyl_map",
+        "ch_spectral",
+        "ch_compartment"
+      ],
+      "map_coefficients": [
+        "alpha",
+        "beta",
+        "gamma"
+      ],
+      "structural_codes": [
+        "ONE_THETA_ADMITTED"
+      ],
+      "schedules": {
+        "ledger": {
+          "codes": [
+            "ONE_THETA_ADMITTED"
+          ],
+          "accept": false,
+          "missing": []
+        },
+        "host": {
+          "codes": [
+            "ONE_THETA_ADMITTED"
+          ],
+          "accept": false,
+          "missing": []
+        }
+      },
+      "accept": {
+        "ledger": false,
+        "host": false
+      },
+      "schema": {
+        "valid": true,
+        "n_errors": 0,
+        "paths": []
+      }
+    }
+  ],
+  "associativity": {
+    "bundle_id_list": [
+      "ch_amyl_map",
+      "ch_spectral",
+      "ch_compartment"
+    ],
+    "singleton_id_list": [
+      "ch_amyl_map",
+      "ch_spectral",
+      "ch_compartment"
+    ],
+    "lists_equal": true,
+    "reassociated_set_equals_bundle": true
+  },
+  "unsnapshotted_doi": {
+    "doi": "10.1234/not-a-real-record",
+    "written_to_disk": false,
+    "schema_valid": true,
+    "rule_codes": [
+      "DOI_NOT_IN_SNAPSHOT"
+    ]
+  },
+  "promotion": {
+    "status": "REFUSED",
+    "code": "ILLEGAL_PROMOTION",
+    "extra_keys": [
+      "L_hi",
+      "L_lo",
+      "checkpoint",
+      "k_host",
+      "k_inf",
+      "phi",
+      "sigma_host"
+    ],
+    "changed_keys": [
+      "sigma"
+    ],
+    "k_inf": 0.5,
+    "k_host": 0.1111111111111111,
+    "k_host_exact": "1/9",
+    "sigma_proposed": 0.2,
+    "phi": 0.55,
+    "stored_as": "proposal_not_a_result"
+  },
+  "names_unchanged": {
+    "status": "NAMES_UNCHANGED",
+    "code": "NAMES_UNCHANGED",
+    "extra_keys": [],
+    "missing_keys": [],
+    "changed_keys": [],
+    "theta_returned": "{\"K\":1.2,\"delta\":0.25,\"kappa\":0.5,\"lam\":0.55,\"pi\":0.7,\"r\":0.3,\"sigma\":0.12}"
+  },
+  "rank_control": {
+    "primary_ledger": [
+      {
+        "rank": 1,
+        "id": "U2",
+        "name": "checkpoint_scaled",
+        "admissible": true,
+        "unhosted_windows": 0,
+        "unhosted_immuno": 0,
+        "slots": 3
+      },
+      {
+        "rank": 2,
+        "id": "U3",
+        "name": "windowed_checkpoint",
+        "admissible": true,
+        "unhosted_windows": 0,
+        "unhosted_immuno": 0,
+        "slots": 5
+      },
+      {
+        "rank": 3,
+        "id": "U1",
+        "name": "lactate_masked",
+        "admissible": true,
+        "unhosted_windows": 0,
+        "unhosted_immuno": 1,
+        "slots": 2
+      },
+      {
+        "rank": 4,
+        "id": "U0",
+        "name": "open_baseline",
+        "admissible": true,
+        "unhosted_windows": 0,
+        "unhosted_immuno": 3,
+        "slots": 0
+      },
+      {
+        "rank": 5,
+        "id": "U4",
+        "name": "band_bypass",
+        "admissible": false,
+        "unhosted_windows": 0,
+        "unhosted_immuno": 2,
+        "slots": 3
+      }
+    ],
+    "primary_host": [
+      {
+        "rank": 1,
+        "id": "U3",
+        "name": "windowed_checkpoint",
+        "admissible": true,
+        "unhosted_windows": 0,
+        "unhosted_immuno": 0,
+        "slots": 5
+      },
+      {
+        "rank": 2,
+        "id": "U2",
+        "name": "checkpoint_scaled",
+        "admissible": true,
+        "unhosted_windows": 2,
+        "unhosted_immuno": 0,
+        "slots": 3
+      },
+      {
+        "rank": 3,
+        "id": "U1",
+        "name": "lactate_masked",
+        "admissible": true,
+        "unhosted_windows": 2,
+        "unhosted_immuno": 1,
+        "slots": 2
+      },
+      {
+        "rank": 4,
+        "id": "U0",
+        "name": "open_baseline",
+        "admissible": true,
+        "unhosted_windows": 2,
+        "unhosted_immuno": 3,
+        "slots": 0
+      },
+      {
+        "rank": 5,
+        "id": "U4",
+        "name": "band_bypass",
+        "admissible": false,
+        "unhosted_windows": 0,
+        "unhosted_immuno": 2,
+        "slots": 3
+      }
+    ],
+    "immuno_terms_on_host": [
+      {
+        "rank": 1,
+        "id": "U2",
+        "name": "checkpoint_scaled",
+        "admissible": true,
+        "unhosted_windows": 2,
+        "unhosted_immuno": 0,
+        "slots": 3
+      },
+      {
+        "rank": 2,
+        "id": "U3",
+        "name": "windowed_checkpoint",
+        "admissible": true,
+        "unhosted_windows": 0,
+        "unhosted_immuno": 0,
+        "slots": 5
+      },
+      {
+        "rank": 3,
+        "id": "U1",
+        "name": "lactate_masked",
+        "admissible": true,
+        "unhosted_windows": 2,
+        "unhosted_immuno": 1,
+        "slots": 2
+      },
+      {
+        "rank": 4,
+        "id": "U0",
+        "name": "open_baseline",
+        "admissible": true,
+        "unhosted_windows": 2,
+        "unhosted_immuno": 3,
+        "slots": 0
+      },
+      {
+        "rank": 5,
+        "id": "U4",
+        "name": "band_bypass",
+        "admissible": false,
+        "unhosted_windows": 0,
+        "unhosted_immuno": 2,
+        "slots": 3
+      }
+    ],
+    "tie_break_on_host": [
+      {
+        "rank": 1,
+        "id": "U0",
+        "name": "open_baseline",
+        "admissible": true,
+        "unhosted_windows": 2,
+        "unhosted_immuno": 3,
+        "slots": 0
+      },
+      {
+        "rank": 2,
+        "id": "U1",
+        "name": "lactate_masked",
+        "admissible": true,
+        "unhosted_windows": 2,
+        "unhosted_immuno": 1,
+        "slots": 2
+      },
+      {
+        "rank": 3,
+        "id": "U2",
+        "name": "checkpoint_scaled",
+        "admissible": true,
+        "unhosted_windows": 2,
+        "unhosted_immuno": 0,
+        "slots": 3
+      },
+      {
+        "rank": 4,
+        "id": "U3",
+        "name": "windowed_checkpoint",
+        "admissible": true,
+        "unhosted_windows": 0,
+        "unhosted_immuno": 0,
+        "slots": 5
+      },
+      {
+        "rank": 5,
+        "id": "U4",
+        "name": "band_bypass",
+        "admissible": false,
+        "unhosted_windows": 0,
+        "unhosted_immuno": 2,
+        "slots": 3
+      }
+    ],
+    "window_only_on_host": [
+      {
+        "rank": 1,
+        "id": "U4",
+        "name": "band_bypass",
+        "admissible": false,
+        "unhosted_windows": 0,
+        "unhosted_immuno": 2,
+        "slots": 3
+      },
+      {
+        "rank": 2,
+        "id": "U3",
+        "name": "windowed_checkpoint",
+        "admissible": true,
+        "unhosted_windows": 0,
+        "unhosted_immuno": 0,
+        "slots": 5
+      },
+      {
+        "rank": 3,
+        "id": "U0",
+        "name": "open_baseline",
+        "admissible": true,
+        "unhosted_windows": 2,
+        "unhosted_immuno": 3,
+        "slots": 0
+      },
+      {
+        "rank": 4,
+        "id": "U1",
+        "name": "lactate_masked",
+        "admissible": true,
+        "unhosted_windows": 2,
+        "unhosted_immuno": 1,
+        "slots": 2
+      },
+      {
+        "rank": 5,
+        "id": "U2",
+        "name": "checkpoint_scaled",
+        "admissible": true,
+        "unhosted_windows": 2,
+        "unhosted_immuno": 0,
+        "slots": 3
+      }
+    ],
+    "permutation": {
+      "ledger": {
+        "n": 200,
+        "discordant": 0,
+        "order": [
+          "U2",
+          "U3",
+          "U1",
+          "U0",
+          "U4"
+        ]
+      },
+      "host": {
+        "n": 200,
+        "discordant": 0,
+        "order": [
+          "U3",
+          "U2",
+          "U1",
+          "U0",
+          "U4"
+        ]
+      }
+    },
+    "note": "Recomputed from the declared structure records. The ranker does not take theta as an argument."
+  }
+}
