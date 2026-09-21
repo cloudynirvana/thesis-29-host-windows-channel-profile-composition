@@ -1,0 +1,157 @@
+schema_version: 1.3.0-windowed-compose
+profile_id: cross_class
+extends:
+  object: DiseaseProfile
+  schema_version: 1.0.0
+  source: https://github.com/cloudynirvana/thesis-03-disease-profile
+disease_id: named-channel-class-unspecified
+disease_label: Named observation-channel class, unspecified. Not a patient.
+created_at: '2026-09-21'
+asker_role: methods_researcher
+answers:
+- id: A1
+  question: Who asks?
+  label: A methods researcher comparing two evidence schedules.
+- id: A2
+  question: Which class?
+  label: named-channel-class-unspecified
+- id: A3
+  question: Which regime?
+  label: In silico. Declared records. No cohort.
+- id: A4
+  question: Where is the portfolio stuck?
+  label: The channels and the host windows both exist. The joint legality of the composition
+    under those windows does not.
+observables:
+- id: obs_channels
+  statement: Named maps remain separate symbols under a legal join.
+  citation_ids:
+  - c_may
+  - c_fusion
+- id: obs_windows
+  statement: A host window is an evidence identifier with a declared interval.
+  citation_ids:
+  - c_saltelli
+  - c_fair
+observation_channels:
+- channel_id: ch_amyl_map
+  name: amylase-shaped map
+  symbol: y_A
+  map_coefficient: alpha
+  observes: A declared saturating map of a substrate coordinate. Not an inhibition
+    percentage.
+  parameter_status: not_in_theta
+  factor_id: F_map
+  source_prior: T08
+  refusal: This coefficient names an observation map. It is not a therapeutic parameter.
+- channel_id: ch_spectral
+  name: spectral contrast
+  symbol: y_S
+  map_coefficient: beta
+  observes: A declared spectral contrast. Not a copied reporter loading.
+  parameter_status: not_in_theta
+  factor_id: F_multi
+  source_prior: T15
+  refusal: This coefficient names an observation map. It is not a therapeutic parameter.
+- channel_id: ch_compartment
+  name: compartment indicator
+  symbol: y_C
+  map_coefficient: gamma
+  observes: A declared compartment indicator. Not a vesicle count.
+  parameter_status: not_in_theta
+  factor_id: F_multi
+  source_prior: T15
+  refusal: This coefficient names an observation map. It is not a therapeutic parameter.
+composition:
+  operator: disjoint_union
+  quotient: null
+  combiner: null
+  factors:
+  - factor_id: F_map
+    source_prior: T08
+    disease_id: named-channel-class-unspecified
+    channel_ids:
+    - ch_amyl_map
+  - factor_id: F_multi
+    source_prior: T15
+    disease_id: other-channel-class
+    channel_ids:
+    - ch_spectral
+    - ch_compartment
+  hosted_evidence:
+  - E_lac
+  - E_ck
+  - E_sup
+  - W_I
+  - W_M
+candidate_mechanisms:
+- id: M-DISTINCT
+  statement: The channel symbols stay distinct under disjoint union. A host window
+    is an evidence identifier, not a new coefficient.
+  evidence_class: in_silico
+  falsifier: A preparation series whose loadings differ and which is nevertheless
+    fitted by one coefficient.
+  status: admitted
+- id: M-ONE-THETA
+  statement: One therapeutic parameter accounts for every channel and for both windows.
+  evidence_class: refused_merge
+  falsifier: A file whose operator is disjoint union, whose theta is empty, and whose
+    window identifiers are hosted as names.
+  status: refused
+  refusal_rule: one symbol used as every map coefficient, or a window written into
+    theta
+non_parameters:
+- id: merged_therapeutic_theta
+  statement: One symbol used as every map coefficient.
+- id: composition_quotient
+  statement: A join that identifies distinct coefficients.
+- id: product_of_map_coefficients
+  statement: A product written as a parameter.
+- id: arithmetic_mean_of_channels
+  statement: A mean written as a parameter.
+- id: channel_promoted_into_theta
+  statement: One channel promoted by the act of joining.
+- id: cross_disease_join
+  statement: A union across two disease-class identifiers.
+- id: self_composition
+  statement: A repeated channel identifier.
+- id: assay_scalar_as_treatment
+  statement: An assay-shaped coefficient copied in as a treatment.
+- id: host_window_endpoint
+  statement: An endpoint of W_I or W_M copied into theta.
+- id: window_rate_k_inf
+  statement: k_inf = 1/2, from the infection-window midpoint, copied into theta.
+- id: window_rate_k_host
+  statement: k_host = 1/9, from the gap between window midpoints, copied into theta.
+- id: ledger_constant_phi
+  statement: The checkpoint scale phi copied into theta.
+theta: []
+admitted_hypotheses:
+- id: H-COEFF-OUT
+  statement: Map coefficients alpha, beta, and gamma stay out of theta.
+  falsifier: A legal file that lists alpha, beta, or gamma inside theta.
+  parameter_status: forbidden_to_enter_theta
+- id: H-WINDOW-NAME
+  statement: Hosting W_I or W_M is membership of an identifier. It does not define
+    k_inf or k_host.
+  falsifier: A file accepted while theta contains k_inf or k_host.
+  parameter_status: forbidden_to_enter_theta
+citations:
+- id: c_may
+  vancouver: May RM. Uses and abuses of mathematics in biology. Science. 2004;303(5659):790-793.
+  doi: 10.1126/science.1094442
+- id: c_saltelli
+  vancouver: 'Saltelli A, Bammer G, Bruno I, Charters E, Di Fiore M, Didier E, et
+    al. Five ways to ensure that models serve society: a manifesto. Nature. 2020;582(7813):482-484.'
+  doi: 10.1038/d41586-020-01812-9
+- id: c_fair
+  vancouver: Wilkinson MD, Dumontier M, Aalbersberg IJ, Appleton G, Axton M, Baak
+    A, et al. The FAIR Guiding Principles for scientific data management and stewardship.
+    Sci Data. 2016;3:160018.
+  doi: 10.1038/sdata.2016.18
+- id: c_fusion
+  vancouver: Bareinboim E, Pearl J. Causal inference and the data-fusion problem.
+    Proc Natl Acad Sci U S A. 2016;113(27):7345-7352.
+  doi: 10.1073/pnas.1510507113
+disclaimer: Research object only. Not a medical device, not clinical decision support,
+  not a diagnostic, not a dose, and not a cure. No document DOI.
